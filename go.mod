@@ -1,4 +1,4 @@
-module github.com/pbentes/Chime
+module github.com/pbentes/80_20
 
 go 1.21.5
 

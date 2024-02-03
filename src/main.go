@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/pbentes/Chime/src/db"
-	"github.com/pbentes/Chime/src/router"
+	"github.com/pbentes/80_20/src/db"
+	"github.com/pbentes/80_20/src/router"
 )
 
 func main() {
