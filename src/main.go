@@ -1,19 +1,26 @@
 package main
 
 import (
-	"github.com/labstack/echo/v4"
+	"github.com/gin-gonic/gin"
 	"github.com/pbentes/80_20/src/db"
-	"github.com/pbentes/80_20/src/router"
+	"github.com/pbentes/80_20/src/routes"
 )
 
 func main() {
 	db.InitDB()
 	defer db.Cleanup()
 
-	e := echo.New()
+	gin.SetMode(gin.ReleaseMode)
+	router := gin.Default()
+	router.HTMLRender = &TemplRender{}
 
-	e.Static("/", "/assets")
-	router.Set(e)
+	router.Static("/assets", "./assets")
 
-	e.Logger.Fatal(e.Start("127.0.0.1:4321"))
+	routes.Set(router)
+
+	address := "127.0.0.1:4321"
+	err := router.Run(address)
+	if err != nil {
+		panic(err)
+	}
 }
