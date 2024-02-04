@@ -1,15 +1,18 @@
 package pages
 
 templ Index() {
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900">80/20 Stack</h1>
+    <div id="cooldiv">
+        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900">80/20 Stack</h1>
 
-    <p>My goal for this stack was getting 80% of functionality with 20% the pain.</p>
+        <p>My goal for this stack was getting 80% of functionality with 20% the pain.</p>
 
-    <ul class="list-disc">
-        <li class="list-disc">HTMX</li>
-        <li class="list-disc">Tailwind</li>
-        <li class="list-disc">Echo</li>
-        <li class="list-disc">Templ</li>
-        <li class="list-disc">SQLite</li>
-    </ul>
+        <ul class="list-disc">
+            <li class="list-disc">HTMX</li>
+            <li class="list-disc">Tailwind</li>
+            <li class="list-disc">Gin</li>
+            <li class="list-disc">Templ</li>
+            <li class="list-disc">SQLite</li>
+        </ul>
+        <button hx-get="http://127.0.0.1:4321/content" hx-target="#cooldiv" hx-swap="outerHTML">Load content</button>
+    </div>
 }
