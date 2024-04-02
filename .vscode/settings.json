@@ -3,7 +3,6 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
-        "**/tmp/": true,
     },
     "tailwindCSS.includeLanguages": {
         "templ": "html"
