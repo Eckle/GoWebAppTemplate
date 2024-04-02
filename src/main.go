@@ -1,26 +1,23 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/joho/godotenv"
 	"github.com/pbentes/80_20/src/db"
-	"github.com/pbentes/80_20/src/routes"
+	"github.com/pbentes/80_20/src/router"
 )
 
 func main() {
+	godotenv.Load()
+
 	db.InitDB()
 	defer db.Cleanup()
 
-	gin.SetMode(gin.ReleaseMode)
-	router := gin.Default()
-	router.HTMLRender = &TemplRender{}
+	mux := router.SetupRouter()
 
-	router.Static("/assets", "./assets")
-
-	routes.Set(router)
-
-	address := "127.0.0.1:4321"
-	err := router.Run(address)
-	if err != nil {
-		panic(err)
-	}
+	fmt.Println("Server running on: http://127.0.0.1:3000")
+	log.Fatal(http.ListenAndServe(":3000", mux))
 }
