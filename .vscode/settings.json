@@ -4,7 +4,6 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/tmp/": true,
-        "**/*_templ.go": true
     },
     "tailwindCSS.includeLanguages": {
         "templ": "html"
