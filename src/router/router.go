@@ -13,7 +13,9 @@ func SetupRouter() *http.ServeMux {
 
 	fs := http.FileServer(http.Dir("assets"))
 	router.Handle("GET /assets/", http.StripPrefix("/assets/", fs))
-	router.HandleFunc("GET /", templ.Handler(components.Layout(pages.Index)).ServeHTTP)
 
+	router.HandleFunc("GET /", templ.Handler(components.Layout(pages.Index)).ServeHTTP)
+	router.HandleFunc("GET /index", templ.Handler(pages.Index()).ServeHTTP)
+	router.HandleFunc("GET /content", templ.Handler(pages.Content()).ServeHTTP)
 	return router
 }
