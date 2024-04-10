@@ -1,14 +1,16 @@
 package db
 
 import (
+	"os"
+
 	"github.com/jmoiron/sqlx"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
 
 var Database *sqlx.DB
 
 func InitDB() {
-	db, err := sqlx.Open("sqlite3", "file:application.db?cache=shared")
+	db, err := sqlx.Open("libsql", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		panic(err)
 	}
