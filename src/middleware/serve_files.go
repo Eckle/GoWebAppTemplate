@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 )
@@ -13,9 +14,15 @@ func ServeFiles(next http.Handler) http.Handler {
 		path := dir + r.URL.Path
 		_, err := os.Stat(path)
 		if os.IsNotExist(err) || r.URL.Path == "/" {
-			next.ServeHTTP(w, r)
-		} else {
-			fs.ServeHTTP(w, r)
+			if r.URL.Path == "/" {
+				next.ServeHTTP(w, r)
+				return
+			} else {
+				w.WriteHeader(http.StatusNotFound)
+				fmt.Fprint(w, "not found")
+				return
+			}
 		}
+		fs.ServeHTTP(w, r)
 	})
 }
