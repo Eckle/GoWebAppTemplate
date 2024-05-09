@@ -3,7 +3,7 @@ module github.com/pbentes/80_20
 go 1.22.1
 
 require (
-	github.com/a-h/templ v0.2.648
+	github.com/a-h/templ v0.2.680
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/joho/godotenv v1.5.1
 	github.com/tursodatabase/libsql-client-go v0.0.0-20240410091947-6fedad9244f7
