@@ -8,7 +8,6 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/pbentes/80_20/src/middleware"
 	"github.com/pbentes/80_20/src/templates"
 )
 
@@ -27,7 +26,7 @@ func Encode(w http.ResponseWriter, r *http.Request, data interface{}) error {
 		if !(r.Header.Get("Template") == "") {
 			template = r.Header.Get("Template")
 		} else {
-			template = fmt.Sprintf("%v", r.Context().Value(middleware.Key("template")))
+			template = fmt.Sprintf("%v", r.Context().Value(Key("template")))
 		}
 
 		if template == "<nil>" || template == "" {
