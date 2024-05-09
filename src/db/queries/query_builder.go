@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/Eckle/Iara/src/db"
+	"github.com/pbentes/80_20/src/db"
 )
 
 func BuildGetQuery(table string, params *Params) (string, []interface{}) {

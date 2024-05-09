@@ -1,6 +1,6 @@
 package migrations
 
-import "github.com/Eckle/Iara/src/db"
+import "github.com/pbentes/80_20/src/db"
 
 /*
 	This package assumes the migrations were all successful.

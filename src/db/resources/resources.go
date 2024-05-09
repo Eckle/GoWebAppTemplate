@@ -1,8 +1,8 @@
 package resources
 
 import (
-	"github.com/Eckle/Iara/src/db"
-	"github.com/Eckle/Iara/src/db/queries"
+	"github.com/pbentes/80_20/src/db"
+	"github.com/pbentes/80_20/src/db/queries"
 )
 
 type Resource interface {
